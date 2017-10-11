@@ -1,0 +1,117 @@
+<!-- Sign Up -->
+<div class="w3-container" id="signUp" ng-controller="signUpCtrl as su">
+    <br>
+    <div class="w3-row w3-center"><h2>Create your account now!</h2></div>
+    <br>
+    <form name="signUpForm">
+        <div class="w3-row w3-border-top">
+        
+            <br>
+            <div class="w3-row-padding">
+                <div class="w3-half">
+                    <label><b>Username</b></label>
+                    <input class="w3-input w3-border" name="username" ng-model="su.username" maxlength = "60" required>
+                    <span class="w3-text-red" ng-show="signUpForm.username.$touched && signUpForm.username.$invalid">You can't leave this empty.</span>
+                </div>
+            </div>
+            <br>
+            <div class="w3-row-padding">
+                <div class="w3-half">
+                    <label><b>Password</b></label>
+                    <input class="w3-input w3-border" type="password" name="password" ng-model="su.password" maxlength = "20" required>
+                    <span class="w3-text-red" ng-show="signUpForm.password.$touched && signUpForm.password.$invalid">You can't leave this empty</span>
+                </div>
+                <div class="w3-half">
+                    <label>&nbsp</label>
+                    <input class="w3-input w3-border" type="password" name="rePassword" ng-model="su.rePassword" maxlength = "20">
+                    <span class="w3-text-red" ng-show="signUpForm.rePassword.$touched && (su.rePassword != su.password) && (su.password != '')">These passwords don't match. Try again?</span>
+                </div>
+            </div>
+            <br>
+            <div class="w3-container">
+                <fieldset>
+                    <legend>Personal Information:</legend>
+                    <div class="w3-row-padding">
+                        <p>
+                        <div class="w3-third">
+                            <label>Name</label>
+                            <input class="w3-input w3-border" type="text" name="firstName" placeholder="First" ng-model="su.firstName" maxlength = "60" required>
+                            <span class="w3-text-red" ng-show="signUpForm.firstName.$touched && signUpForm.firstName.$invalid">You can't leave this empty</span>
+                        </div>
+                        <div class="w3-third">
+                            <label>&nbsp</label>
+                            <input class="w3-input w3-border" type="text" placeholder="Middle" ng-model="su.middleName" maxlength = "60">
+                            
+                        </div>
+                        <div class="w3-third">
+                            <label>&nbsp</label>
+                            <input class="w3-input w3-border" type="text" name="lastName" placeholder="Last" ng-model="su.lastName" maxlength = "60" required>
+                            <span class="w3-text-red" ng-show="signUpForm.lastName.$touched && signUpForm.lastName.$invalid">You can't leave this empty</span>
+                        </div>
+                        </p>
+                    </div>
+                    <div class="w3-row-padding">
+                        <p>
+                        
+                        <div class="w3-twothird">
+                            <label>Address</label>
+                            <input class="w3-input w3-border" type="text" name="address" ng-model="su.address" maxlength = "100" required>
+                            <span class="w3-text-red" ng-show="signUpForm.address.$touched && signUpForm.address.$invalid">You can't leave this empty</span>
+                        </div>
+                        
+                        <div class="w3-third">
+                            <label>Birthday</label>
+                            <input class="w3-input w3-border" name="birthday" type="date" placeholder="mm/dd/yyyy" ng-model="su.birthday" required>
+                            <span class="w3-text-red" ng-show="signUpForm.birthday.$touched && signUpForm.birthday.$invalid && (su.birthday != '')">Invalid date format</span>
+                            <span class="w3-text-red" ng-show="signUpForm.birthday.$touched && (su.birthday == '')">You can't leave this empty</span>
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+
+        </div>
+        <div class="w3-row">
+            <br>
+            <div class="w3-container">
+                <fieldset>
+                    <legend>Other Information:</legend>
+                    <div class="w3-row-padding">
+                        <p>
+                            <div class="w3-half">
+                                <label>Email Address</label>
+                                <input class="w3-input w3-border" type="email" name="emailAddress" ng-model="su.emailAddress" maxlength = "60" required>
+                                <span class="w3-text-red" ng-show="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$invalid && (su.emailAddress != '')">Invalid email address</span>
+                                <span class="w3-text-red" ng-show="signUpForm.emailAddress.$touched && (su.emailAddress == '')">You can't leave this empty</span>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="w3-row-padding">
+                        <p>
+                            <div class="w3-half">
+                                <label>Contact Number</label>
+                                <input class="w3-input w3-border" type="text" name="contactNumber" maxlength="11" minlength="7" ng-model="su.contactNumber" required>
+                                <span class="w3-text-red" ng-show="signUpForm.contactNumber.$touched && (su.contactNumber == '')">You can't leave this empty</span>
+                            </div>
+                            <div class="w3-half">
+                                <label>Other Contact Number</label>
+                                <input class="w3-input w3-border" type="text" maxlength="11" minlength="7" ng-model="su.oContactNumber">
+                                <div><label class="w3-text-red">{{su.errorOContactNumber}}</label></div>
+                            </div>
+                        </p>
+                    </div>
+                    
+                </fieldset>
+            </div>
+        </div>
+        <br>
+        <div class="w3-container w3-center"> 
+                <button type="submit" class="w3-btn w3-border w3-round w3-blue w3-border-blue w3-hover-teal w3-padding w3-small" style="width: 200px" ng-click="su.signUpClick()"><b>SIGN UP</b></button>
+        </div>
+    </form>
+    <br>
+    <div class="w3-container w3-border-top w3-small">
+        <div class="w3-row w3-right w3-wide">
+            © <span class="w3-text-purple"><b>IM</b></span><span class="w3-text-blue">LifeStyle</span> 2017
+        </div>
+    </div>
+</div>

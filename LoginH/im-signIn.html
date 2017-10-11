@@ -1,0 +1,47 @@
+<div class="w3-container" id="signIn" ng-controller="signInCtrl as si">
+	<br>
+	<div class="w3-row">
+		<div class="w3-col l2">&nbsp</div>
+		<div class="w3-col l8">
+			<h2><b>Sign In!</b></h2>
+			Don't have an account yet? <a href="login.php" class="w3-text-blue"><b>Create a free account</b></a>
+		</div>
+		<div class="w3-col l2">&nbsp</div>
+
+	</div>
+	<br>
+	<form>
+		<div class="w3-row">
+			<br>
+			<div class='w3-row'>
+				<div class="w3-col l2">&nbsp</div>
+				<div class="w3-col l8">
+					<label class="w3-text-red">{{si.errorMessage}}</label>
+					<br><br>
+					<label><b>Username</b></label>
+					<input class="w3-input w3-border" type="text" ng-model="si.username" required>
+				</div>
+				<div class="w3-col l2">&nbsp</div>
+			</div>
+			<br>
+			<div class='w3-row'>
+				<div class="w3-col l2">&nbsp</div>
+				<div class="w3-col l8">
+					<label><b>Password</b></label>
+					<input class="w3-input w3-border" type="Password" ng-model="si.password" required>
+				</div>
+				<div class="w3-col l2">&nbsp</div>
+			</div>
+		</div>
+		<br>
+		<div class="w3-container w3-center"> 
+				<button class="w3-medium w3-btn w3-border w3-round w3-blue w3-border-blue w3-hover-teal w3-padding w3-small" style="width: 200px" ng-click="si.signInClick()"><b>Sign In</b></button>
+		</div>
+		<br>
+		<div class="w3-container w3-border-top w3-small">
+			<div class="w3-row w3-right w3-wide">
+				© <span class="w3-text-purple"><b>IM</b></span><span class="w3-text-blue">LifeStyle</span> 2017
+			</div>
+		</div>
+	</form>
+</div>

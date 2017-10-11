@@ -1,0 +1,55 @@
+<!-- Top container -->
+<div class='w3-container'>
+  <br>
+  <br>
+  <div class="w3-row">
+    <div class="w3-col l1">&nbsp</div>
+    <div class="w3-col l10 w3-border w3-border-blue w3-round">
+      <div class="w3-row w3-blue">
+        <div class="w3-container">
+          <h3><b>Product</b></h3>
+        </div>
+      </div>
+      <div class="w3-row w3-white">
+        <div class="w3-container">
+          <div class='w3-container'>
+            <form action="adminSaveProd.php" method = "post" enctype="multipart/form-data">
+              <br>
+              <div class="w3-row-padding">
+                <div class='w3-twothird'>
+                  <label><b>Product/Bundle Name</b></label>
+                  <input class="w3-input w3-border" type="text" name="prod_name" required>
+                </div>
+                <div class='w3-third'>
+                  <label><b>Price</b> <span class="w3-text-grey">&nbsp&nbsp(in Peso)</span></label>
+                  <input class="w3-input w3-border" type="number" name="prod_price" required>
+                </div>
+              </div>
+              <br>
+              <div class="w3-row-padding">
+                <div class='w3-twothird'>
+                  <label><b>Product List </b> <span class="w3-text-grey">&nbsp&nbsp(Separated by comma)</span> </label>
+                  <textarea class='w3-input w3-border' ng-model="prodUpload.productList" name="prod_list" required></textarea>
+                </div>
+                <div class='w3-third'>
+                  <br>
+                  <input type="file" name="prodImage" id="fileUpload" onchange="checkextension()" required>
+                </div>
+                <br>
+                <br>
+              </div>
+              <br>
+              <div class="w3-row-padding w3-right w3-margin-bottom">
+                <button type="submit" class="w3-button w3-round w3-blue">Submit</button>
+              </div>
+              <br>
+              <br>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="w3-col l1">&nbsp</div>
+  </div>
+</div>
