@@ -17,7 +17,7 @@
     $middleName = $request["middleName"];
     $lastName = $request["lastName"];
     $address = $request["address"];
-    echo $birthday = $request["birthday"];
+    $birthday = $request["birthday"];
     $emailAddress = $request["emailAddress"];
     $contactNum = $request["contactNumber"];
     $oContactNum = $request["oContactNumber"];
@@ -29,7 +29,7 @@
 	$archive = 0; // active
     //echo "test";
 
-    $sql = "INSERT INTO users (Username, Password, Last_name, Given_name, Middle_name, 
+    echo $sql = "INSERT INTO users (Username, Password, Last_name, Given_name, Middle_name, 
     								Birthday, Address, Email, Contact_Num, Other_Contact_Num, 
     								Added_by, Date_Added, Updated_by, Last_Modified, UserType, Archive)
 							VALUES ('".$username."', '".$password."', '".$lastName."', '".$firstName."','".$middleName."',

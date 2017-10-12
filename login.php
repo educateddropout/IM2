@@ -16,6 +16,9 @@
 <script type="text/javascript" src="lib/js/angular.min.js"></script>
 <script type="text/javascript" src="lib/js/jquery-2.1.3.js"></script>
 <script type="text/javascript" src="Angular/login.js"></script>
+<style type="text/css">
+	.w3-select1{padding:10px 0;width:100%;border:none;border-bottom:1px solid #ccc}
+</style>
 <body class="w3-light-grey" ng-app="login">
 	<!-- Navbar (sit on top) -->
 	<div class="w3-top">
@@ -46,7 +49,7 @@
 					</div>
 
 					<!-- Sign Up Section -->
-					<div class="w3-container tabSection" id="signUp" style="display:none">
+					<div class="w3-container tabSection" id="signUp" style="display:none" ng-controller="signUpCtrl as su">
 					    <br>
 					    <div class="w3-row w3-center"><h2><b>Create your account now!</b></h2></div>
 					    <br>
@@ -57,7 +60,7 @@
 					            <div class="w3-row-padding">
 					                <div class="w3-half">
 					                    <label><b>Username</b></label>
-					                    <input class="w3-input w3-border" name="username" maxlength = "60" required>
+					                    <input class="w3-input w3-border" name="username" ng-model="su.username" maxlength = "60" required>
 					                </div>
 					            </div>
 					            <br>
@@ -69,6 +72,7 @@
 					                <div class="w3-half">
 					                    <label>&nbsp</label>
 					                    <input class="w3-input w3-border" type="password" name="rePassword" ng-model="su.rePassword" maxlength = "20">
+					                	<span class="w3-text-red" ng-show="signUpForm.rePassword.$touched && (su.rePassword != su.password) && (su.password != '')">These passwords don't match. Try again?</span>
 					                </div>
 					            </div>
 					            <br>
@@ -78,7 +82,7 @@
 					                    <div class="w3-row-padding">
 					                        <p>
 					                        <div class="w3-third">
-					                            <label>Name</label>
+					                            <label><b>Name</b></label>
 					                            <input class="w3-input w3-border" type="text" name="firstName" placeholder="First" ng-model="su.firstName" maxlength = "60" required>
 					                        </div>
 					                        <div class="w3-third">
@@ -92,18 +96,33 @@
 					                        </div>
 					                        </p>
 					                    </div>
-					                    <div class="w3-row-padding">
+					                    <div class="w3-container">
 					                        <p>
-					                        
-					                        <div class="w3-twothird">
-					                            <label>Address</label>
+					                            <label><b>Address</b></label>
 					                            <input class="w3-input w3-border" type="text" name="address" ng-model="su.address" maxlength = "100" required>
-					                        </div>
-					                        
-					                        <div class="w3-third">
-					                            <label>Birthday</label>
-					                            <input class="w3-input w3-border" name="birthday" type="date" placeholder="mm/dd/yyyy" ng-model="su.birthday" required>
 					                        </p>
+					                    </div>
+					                    <div class="row">
+					                        <div class="w3-col l7 w3-container">
+					                            <label><b>Birthday</b></label>
+					                            <div class='w3-row'>
+					                            	<div class="w3-col m6 w3-padding-top">
+					                            		<select class="w3-select1 w3-border" ng-model="su.selectedMonth" required>
+					                            			<option class="w3-text-grey" value="" disabled selected>Month</option>
+					                            			<option ng-repeat="x in su.month">{{x}}</option>
+					                            		</select>
+					                            	</div>
+					                            	<div class="w3-col m3">
+					                            		<div class="w3-container">
+					                            			<input type="text" ng-model="su.selectedDay" class="w3-input w3-border" maxlength="2" placeholder="Day">
+					                            		</div>
+					                            	</div>
+					                            	<div class="w3-col m3">
+					                            		<input type="text" ng-model="su.selectedYear"  class="w3-input w3-border" maxlenght="4" placeholder="Year">
+					                            	</div>
+					                            </div>
+					                            <label class="w3-text-red">{{su.eBirthday}}</label>
+					                        </div>
 					                    </div>
 					                </fieldset>
 					            </div>
@@ -117,20 +136,23 @@
 					                    <div class="w3-row-padding">
 					                        <p>
 					                            <div class="w3-half">
-					                                <label>Email Address</label>
+					                                <label><b>Email Address</b></label>
 					                                <input class="w3-input w3-border" type="email" name="emailAddress" ng-model="su.emailAddress" maxlength = "60" required>
+					                            	<span class="w3-text-red" ng-show="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$invalid && su.emailAddress != ''">Invalid email address</span>
 					                            </div>
 					                        </p>
 					                    </div>
 					                    <div class="w3-row-padding">
 					                        <p>
 					                            <div class="w3-half">
-					                                <label>Contact Number</label>
-					                                <input class="w3-input w3-border" type="text" name="contactNumber" maxlength="11" minlength="7" ng-model="su.contactNumber" required>
+					                                <label><b>Contact Number</b></label>
+					                                <input class="w3-input w3-border" type="text" name="contactNumber" maxlength="11" ng-model="su.contactNumber" required>
+					                            	<label class="w3-text-red">{{su.eContactNumber}}</label>
 					                            </div>
 					                            <div class="w3-half">
-					                                <label>Other Contact Number</label>
-					                                <input class="w3-input w3-border" type="text" maxlength="11" minlength="7" ng-model="su.oContactNumber">
+					                                <label><b>Other Contact Number</b></label>
+					                                <input class="w3-input w3-border" type="text" maxlength="11" ng-model="su.oContactNumber">
+					                            	<label class="w3-text-red">{{su.eOContactNumber}}</label>
 					                            </div>
 					                        </p>
 					                    </div>
