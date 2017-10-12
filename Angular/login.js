@@ -22,7 +22,44 @@
           this.oContactNumber = "";
           this.fBirthday = ""; // formatted birthday
 
-          this.month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+          
+          this.month = [
+               {    "name" : "January",
+                    "value" : "01"
+               },
+               {    "name" : "February",
+                    "value" : "02"
+               },
+               {    "name" : "March",
+                    "value" : "03"
+               },
+               {    "name" : "April",
+                    "value" : "04"
+               },
+               {    "name" : "May",
+                    "value" : "05"
+               },
+               {    "name" : "June",
+                    "value" : "06"
+               },
+               {    "name" : "July",
+                    "value" : "07"
+               },
+               {    "name" : "August",
+                    "value" : "08"
+               },
+               {    "name" : "September",
+                    "value" : "09"
+               },
+               {    "name" : "October",
+                    "value" : "10"
+               },
+               {    "name" : "November",
+                    "value" : "11"
+               },
+               {    "name" : "December",
+                    "value" : "12"
+               }];
 
           this.signUpClick = function(){
 
@@ -33,19 +70,19 @@
                
                if(this.selectedYear < (yearToday+1) && this.selectedYear > (yearToday-120)){
 
-                    if(su.selectedMonth == "January" || su.selectedMonth == "March" || su.selectedMonth == "May" || su.selectedMonth == "July" ||  su.selectedMonth == "August" ||  su.selectedMonth == "October" || su.selectedMonth == "December"){
+                    if(su.selectedMonth == "01" || su.selectedMonth == "03" || su.selectedMonth == "05" || su.selectedMonth == "07" ||  su.selectedMonth == "08" ||  su.selectedMonth == "10" || su.selectedMonth == "12"){
                          if(su.selectedDay > 31 || su.selectedDay < 1){
                               su.eBirthday = "Hmm. The day doesn't look right. Make sure it is valid day of a Month";
                               errorIndD = 1;
                          }
                     }
-                    else if(su.selectedMonth == "April" || su.selectedMonth == "June" || su.selectedMonth == "September" || su.selectedMonth == "November"){
+                    else if(su.selectedMonth == "04" || su.selectedMonth == "06" || su.selectedMonth == "09" || su.selectedMonth == "11"){
                          if(su.selectedDay > 31 || su.selectedDay < 1){
                               su.eBirthday = "Hmm. The day doesn't look right. Make sure it is valid day of a Month.";
                               errorIndD = 1;
                          }
                     }
-                    else if(su.selectedMonth = "February"){
+                    else if(su.selectedMonth = "02"){
                          if(su.selectedYear % 4 == 0){
                               if(su.selectedDay > 29 || su.selectedDay < 1){
                                    su.eBirthday = "Hmm. The day doesn't look right. Make sure it is valid day of a Month.";

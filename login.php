@@ -109,7 +109,7 @@
 					                            	<div class="w3-col m6 w3-padding-top">
 					                            		<select class="w3-select1 w3-border" ng-model="su.selectedMonth" required>
 					                            			<option class="w3-text-grey" value="" disabled selected>Month</option>
-					                            			<option ng-repeat="x in su.month">{{x}}</option>
+					                            			<option ng-repeat="x in su.month" value="{{x.value}}">{{x.name}}</option>
 					                            		</select>
 					                            	</div>
 					                            	<div class="w3-col m3">
