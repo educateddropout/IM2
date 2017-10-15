@@ -174,7 +174,7 @@
 
                this.responseMessage = $http({
                     method: "POST",
-                    url: "loginVerify.php",
+                    url: "scripts/login/loginVerify.php",
                     data: {
                          "username" : si.username,
                          "password" : si.password,
@@ -183,8 +183,11 @@
 
                }).then(function mySuccess(response) {
                     console.log(response.data);
-                    if(response.data.queryError == 3){ // not valid
+                    if(response.data.queryError == 2){ // not valid
                          window.location = "adminHome.php";
+                    }
+                    else if(response.data.queryError == 3){
+                         window.location = "home.php";
                     }
                     else{
                          si.errorMessage = "Invalid username or password";     

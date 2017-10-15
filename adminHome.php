@@ -6,11 +6,13 @@
 <link rel="stylesheet" href="lib/css/v4/w3.css">
 <link rel="stylesheet" href="lib/css/font-awesome-4.7.0/css/font-awesome.min.css">
 <script src="lib/js/angular.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery-2.1.3.js"></script>
 <script type="text/javascript" src="Angular/adminHome.js"></script>
 
 <body class="w3-light-grey" ng-app="adminHome">
 
-<side-bar></side-bar>
+<!-- Sidebar header and session -->
+<?php include("main/imAdminSidebar.php");?>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
@@ -23,7 +25,7 @@
   </header>
 
   <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-third">
+    <div class="w3-third " id="test">
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-users  w3-xxxlarge"></i></div>
         <div class="w3-right">
@@ -226,8 +228,11 @@
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
 
-  <!-- End page content -->
 </div>
+
+
+
+</body>
 
 <script>
 // Get the Sidebar
@@ -252,7 +257,15 @@ function w3_close() {
     mySidebar.style.display = "none";
     overlayBg.style.display = "none";
 }
-</script>
 
-</body>
+function checkextension() {
+  var file = document.querySelector("#fileUpload");
+  if ( /\.(jpe?g|png)$/i.test(file.files[0].name) === false ) { alert("not an image!"); }
+}
+
+  $(document).ready(function(){
+
+    $("#adminHome").addClass("w3-blue");
+  });
+</script>
 </html>
