@@ -61,6 +61,7 @@
 					                <div class="w3-half">
 					                    <label><b>Username</b></label>
 					                    <input class="w3-input w3-border" name="username" ng-model="su.username" maxlength = "60" required>
+					                	<label class="w3-text-red">{{su.eDupUsername}}</label>
 					                </div>
 					            </div>
 					            <br>
@@ -139,6 +140,7 @@
 					                                <label><b>Email Address</b></label>
 					                                <input class="w3-input w3-border" type="email" name="emailAddress" ng-model="su.emailAddress" maxlength = "60" required>
 					                            	<span class="w3-text-red" ng-show="signUpForm.emailAddress.$touched && signUpForm.emailAddress.$invalid && su.emailAddress != ''">Invalid email address</span>
+					                            	<label class="w3-text-red">{{su.eEmailAddress}}</label>
 					                            </div>
 					                        </p>
 					                    </div>
